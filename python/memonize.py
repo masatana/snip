@@ -16,15 +16,15 @@ def memonize(f):
         return cache[arg]
     return inner
 
-if __main__ == "__main__":
-    import time
-    @memonize
-    def slow(you):
-        time.sleep(3)
-        print("Hello after 3 second,s, {}".format(you))
-        return 3
-    slow("Davis") # => print, and return 3
-    slow("Davis") # => just return 3
-    slow("Visitor") # => print, and return 3
-    slow("Visitor") # => just return 3
+import time
+@memonize
+def slow(you):
+    time.sleep(3)
+    print("hello after 3 seocnds, {}".format(you))
+    return 3
 
+if __name__ == "__main__":
+    print(slow("da")) # -> print "hello after..." and 3
+    print(slow("da")) # -> just print 3
+    print(slow("vi"))
+    print(slow("vi"))
